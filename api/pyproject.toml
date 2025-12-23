@@ -1,0 +1,28 @@
+[project]
+name = "projekt-pp5"
+version = "0.1.0"
+
+requires-python = ">=3.11"
+dependencies = [
+    "flask (>=3.1.2,<4.0.0)",
+    "requests (>=2.32.5,<3.0.0)",
+    "beautifulsoup4 >=4.0.0,<5.0.0",
+    "pandas (>=2.3.3,<3.0.0)",
+    "numpy (>=2.4.0,<3.0.0)",
+    "matplotlib (>=3.10.8,<4.0.0)",
+    "plotly (>=6.5.0,<7.0.0)",
+    "jsonify>=0.5",
+    "flasgger>=0.9.7.1",
+]
+[tool.poetry]
+package-mode = false
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+
+[dependency-groups]
+dev = [
+    "ruff>=0.14.10",
+]
+

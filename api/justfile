@@ -1,0 +1,25 @@
+setup:
+    uv venv --python python3
+    source .venv/Scripts/activate
+    uv sync --all-extras --all-packages
+
+# Run the `FastAPI` server
+run:
+      uv run flask run
+# Format code
+format:
+    uv run --active ruff format
+
+# Lint code
+check:
+    uv run --active ruff check && \
+    uv run --active ruff format
+
+fix:
+  uv run --active ruff check --fix && \
+  uv run --active ruff format 
+
+# Clean venv
+clean:
+    rm -rf .venv
+    rm -rf .ruff_cache
