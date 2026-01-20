@@ -2,6 +2,11 @@ const API_BASE = '/api';
 
 export const Api = {
     async extractProduct(productId) {
+        console.log('extractProduct called with:', productId); 
+        if (!productId) {
+            throw new Error('product_id is required');
+        }
+
         try {
             // Używamy POST, bo routes.py obsługuje obie metody
             const response = await fetch(

@@ -35,12 +35,13 @@ def api_extract():
       404:
         description: Product not found or has no opinions
     """
-    # accept product_id via query string, form or JSON body
-    if request.method == "POST":
+    # Accept product_id from query string first (works for both GET and POST)
+    product_id = request.args.get("product_id")
+    
+    # If not in query string, try JSON body or form data
+    if not product_id:
         data = request.get_json(silent=True) or request.form
         product_id = data.get("product_id") if data else None
-    else:
-        product_id = request.args.get("product_id")
 
     if not product_id:
         return jsonify({"error": "product_id is required"}), 400
