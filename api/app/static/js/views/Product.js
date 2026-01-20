@@ -20,7 +20,7 @@ export default class Product {
             const starsChartPath = `/static/charts/${id}/stars_chart.html`;
             const recommendationsChartPath = `/static/charts/${id}/recommendations_chart.html`;
 
-            const imageUrl = stats.product_image_url;
+            const imageUrl = stats.image_url;
 
             const isFav = Storage.isFavorite(id);
             const btnText = isFav
@@ -69,7 +69,7 @@ export default class Product {
                     Storage.toggleFavorite({
                         id: id,
                         name: stats.product_name,
-                        image: stats.product_image_url,
+                        image: stats.image_url,
                     });
                     window.location.reload();
                 });
