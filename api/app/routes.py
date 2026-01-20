@@ -16,9 +16,29 @@ def index():
 def api_extract():
     """
     Extract product opinions from Ceneo
+    ---
+    parameters:
+      - name: product_id
+        in: query
+        type: string
+        required: true
+        description: The Ceneo product ID (e.g., 12345678)
+      - name: include_opinions
+        in: query
+        type: boolean
+        description: Whether to return the full list of opinions in the response
+    responses:
+      200:
+        description: Product data and statistics extracted successfully
+      400:
+        description: Missing product_id
+      404:
+        description: Product not found or has no opinions
     """
+    # Accept product_id from query string first (works for both GET and POST)
     product_id = request.args.get("product_id")
     
+    # If not in query string, try JSON body or form data
     if not product_id:
         data = request.get_json(silent=True) or request.form
         product_id = data.get("product_id") if data else None
