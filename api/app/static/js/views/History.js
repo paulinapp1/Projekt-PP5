@@ -68,7 +68,7 @@ export default class History {
                                         <span class="history-star ${isFav ? 'active' : ''}" 
                                               data-id="${p.product_id}" 
                                               data-name="${p.product_name}"
-                                              data-image="${p.image_url || ''}">
+                                              data-image="${p.product_image_url || ''}">
                                             ${isFav ? '★' : '☆'}
                                         </span>
                                     </td>

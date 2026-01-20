@@ -20,10 +20,7 @@ export default class Product {
             const starsChartPath = `/static/charts/${id}/stars_chart.html`;
             const recommendationsChartPath = `/static/charts/${id}/recommendations_chart.html`;
 
-            const imageUrl =
-                stats.image_url ||
-                data.image_url ||
-                'https://via.placeholder.com/300x300?text=No+Image+Found';
+            const imageUrl = stats.product_image_url;
 
             const isFav = Storage.isFavorite(id);
             const btnText = isFav
@@ -37,7 +34,7 @@ export default class Product {
                         <img src="${imageUrl}" 
                              class="product-image-large" 
                              alt="${stats.product_name}"
-                             onerror="this.src='https://via.placeholder.com/300x300?text=Image+Not+Found'">
+                             onerror="this.src='https://placehold.co/300x300?text=Blad+Obrazu'">
                     </div>
                     <div class="product-info">
                         <h2>${stats.product_name || 'Product ' + id}</h2>
@@ -72,7 +69,7 @@ export default class Product {
                     Storage.toggleFavorite({
                         id: id,
                         name: stats.product_name,
-                        image: imageUrl,
+                        image: stats.product_image_url,
                     });
                     window.location.reload();
                 });

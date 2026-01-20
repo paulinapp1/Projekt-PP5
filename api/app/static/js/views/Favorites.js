@@ -18,7 +18,8 @@ export default class Favorites {
             <div class="fav-card" data-id="${product.id}">
                 <div class="star-icon active" data-id="${product.id}">★</div>
                 <div class="fav-card-image">
-                    <img src="${product.image}" alt="${product.name}">
+                    <img src="${product.image}" alt="${product.name}" 
+                         onerror="this.src='https://placehold.co/300x300?text=Brak+Zdjecia'">
                 </div>
                 <div class="fav-card-content">
                     <p class="product-id">${product.id}</p>
