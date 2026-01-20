@@ -20,7 +20,10 @@ export default class Product {
             const starsChartPath = `/static/charts/${id}/stars_chart.html`;
             const recommendationsChartPath = `/static/charts/${id}/recommendations_chart.html`;
 
-            const imageUrl = stats.image_url;
+            const imageUrl =
+                stats.image_url ||
+                data.image_url ||
+                'https://via.placeholder.com/300x300?text=No+Image+Found';
 
             const isFav = Storage.isFavorite(id);
             const btnText = isFav

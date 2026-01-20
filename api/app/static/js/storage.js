@@ -19,7 +19,7 @@ export const Storage = {
             favs.push({
                 id: product.id,
                 name: product.name,
-                image: 'placeholder',
+                image: product.image,
             });
         }
         localStorage.setItem('ceneo_favs', JSON.stringify(favs));

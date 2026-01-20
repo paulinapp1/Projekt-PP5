@@ -97,7 +97,7 @@ export default class History {
                 const productData = {
                     id: e.target.dataset.id,
                     name: e.target.dataset.name,
-                    image_url: e.target.dataset.image,
+                    image: e.target.dataset.image,
                 };
 
                 Storage.toggleFavorite(productData);

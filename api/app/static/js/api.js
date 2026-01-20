@@ -3,16 +3,17 @@ const API_BASE = '/api';
 export const Api = {
     async extractProduct(productId) {
         try {
-            const response = await fetch(`${API_BASE}/extract`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
+            // Używamy POST, bo routes.py obsługuje obie metody
+            const response = await fetch(
+                `${API_BASE}/extract?product_id=${productId}&include_opinions=true`,
+                {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json', // Niezbędne dla request.json
+                    },
+                    body: JSON.stringify({}), // Przesyłamy pusty JSON, aby uniknąć błędu 400
                 },
-                body: JSON.stringify({
-                    product_id: productId,
-                    include_opinions: true,
-                }),
-            });
+            );
 
             if (!response.ok) {
                 const errorData = await response.json();
@@ -27,6 +28,7 @@ export const Api = {
 
     async getProduct(productId) {
         try {
+            // Tutaj używamy GET, ale również dodajemy nagłówek JSON
             const response = await fetch(
                 `${API_BASE}/product/${productId}?include_opinions=true`,
                 {
@@ -60,5 +62,13 @@ export const Api = {
             console.error('API Error (getProducts):', error);
             throw error;
         }
+    },
+
+    fixChartPath(path) {
+        if (!path) return '';
+        // Zamień fizyczną ścieżkę serwera na URL dostępny dla przeglądarki
+        let cleanPath = path.replace(/^app\/static\//, '/static/');
+        if (!cleanPath.startsWith('/')) cleanPath = '/' + cleanPath;
+        return cleanPath;
     },
 };

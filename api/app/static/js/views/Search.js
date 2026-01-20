@@ -28,12 +28,17 @@ export default class Search {
                 alert('Please enter a valid Product ID');
                 return;
             }
+
+            // UI: Wyłącz przycisk i pokaż loader
             btn.disabled = true;
             loaderContainer.innerHTML =
                 '<div class="loader"></div><p>Scraping Ceneo... please wait...</p>';
 
             try {
+                // Wywołanie Twojego API (metoda POST)
                 const result = await Api.extractProduct(productId);
+
+                // Po sukcesie przekieruj do widoku produktu
                 window.location.hash = `#/product/${productId}`;
             } catch (err) {
                 console.error(err);
@@ -44,6 +49,7 @@ export default class Search {
             }
         });
 
+        // Obsługa klawisza Enter
         input.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') btn.click();
         });
