@@ -1,0 +1,18 @@
+{
+    "product_id": "163003681",
+    "product_name": "Samsung Galaxy S24 Ultra SM-S928 12/256GB Czarny",
+    "image_url": "https://image.ceneostatic.pl/data/products/163003681/i-samsung-galaxy-s24-ultra-sm-s928-12-256gb-czarny.jpg",
+    "opinions_count": 11,
+    "average_stars": 4.45,
+    "stars_distribution": {
+        "5.0": 8,
+        "4.0": 1,
+        "0.5": 1
+    },
+    "recommendations_distribution": {
+        "Polecam": 9,
+        "Nie polecam": 1
+    },
+    "stars_chart": "/static/charts/163003681/stars_chart.html",
+    "recommendations_chart": "/static/charts/163003681/recommendations_chart.html"
+}

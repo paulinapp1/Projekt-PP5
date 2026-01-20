@@ -47,6 +47,21 @@ selectors = {
     "purchase_date": ("span.user-post__published > time:nth-child(2)", "datetime"),
 }
 
+def get_product_image(soup):
+    anchor = soup.select_one('a.js_gallery-anchor.js_gallery-item.gallery-carousel__anchor[href]')
+    
+    if not anchor:
+        anchor = soup.select_one('a.js_gallery-item[href]')
+    
+    if not anchor:
+        return None
+
+    url = anchor.get("href").strip()
+
+    if url.startswith("//"):
+        url = "https:" + url
+
+    return url
 
 def create_charts(all_opinions, product_id):
     opinions_df = pd.DataFrame(all_opinions)
@@ -100,8 +115,8 @@ def create_charts(all_opinions, product_id):
         f.write(recommendations_chart)
 
     return (
-        f"/charts/{product_id}/stars_chart.html",
-        f"/charts/{product_id}/recommendations_chart.html",
+        f"/static/charts/{product_id}/stars_chart.html",
+        f"/static/charts/{product_id}/recommendations_chart.html",
     )
 
 

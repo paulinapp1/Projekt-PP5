@@ -1,0 +1,17 @@
+{
+    "product_id": "162617628",
+    "product_name": "Samsung Galaxy A25 5G SM-A256 6/128GB Czarny",
+    "image_url": "https://image.ceneostatic.pl/data/products/162617628/i-samsung-galaxy-a25-5g-sm-a256-6-128gb-czarny.jpg",
+    "opinions_count": 11,
+    "average_stars": 4.65,
+    "stars_distribution": {
+        "5.0": 5,
+        "4.5": 3,
+        "4.0": 2
+    },
+    "recommendations_distribution": {
+        "Polecam": 10
+    },
+    "stars_chart": "/static/charts/162617628/stars_chart.html",
+    "recommendations_chart": "/static/charts/162617628/recommendations_chart.html"
+}
